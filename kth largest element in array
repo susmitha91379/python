@@ -1,0 +1,12 @@
+import heapq
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        arr=[]
+        n=len(nums)
+        for ind in range(0,k):
+            heapq.heappush(arr,nums[ind])
+        for p in range(k,n):
+            if(nums[p]>arr[0]):
+                heapq.heappop(arr)
+                heapq.heappush(arr,nums[p])
+        return arr[0]
