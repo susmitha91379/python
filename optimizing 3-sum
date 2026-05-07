@@ -1,0 +1,19 @@
+class Solution:
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
+        n=len(nums)
+        s=set()
+        for a in range(0,n):
+            d={}
+            for b in range(a+1,n):
+                c=-(nums[a]+nums[b])
+                if(c in d):
+                    lst = [nums[a],nums[b],c]
+                    lst.sort()
+                    s.add(tuple(lst))
+                d[nums[b]] = b
+        ans = []
+        for t in s:
+            ans.append(list(t))
+        return ans
+
+    
